@@ -29,11 +29,11 @@
 
 6.- Comprobamos los cambios realizados observando, con el comando *cat*, el fichero /etc/var/lib/dhcp/dhcpd.leases y ejecutando el comando *journalctl -f*:
 - cat /etc/var/lib/dhcp/dhcpd.leases
-- 
+
 ![image](https://github.com/DanielTenorioF/Dhcp/assets/114906968/4ef666ad-c1b2-469a-b9b4-8264b32b14a9)
 
 - journalctl -f
-- 
+
 ![image](https://github.com/DanielTenorioF/Dhcp/assets/114906968/ab00ade8-2315-489c-82ae-58d6e515bfe3)
 
 7.- Deshabilitar y parar el servicio NetworkManager para poder configurar la red estática:
@@ -46,12 +46,12 @@ Comprobar: systemctl status NetworkManager
 
 8.- Configurar IP fija de enp0s3 y enp0s8, modificando el fichero /etc/network/interfaces:
 - nano /etc/network/interfaces
-- 
+
 ![image](https://github.com/DanielTenorioF/Dhcp/assets/114906968/2c6d73db-db5d-4fc8-ad84-802784e73927)
 
 9.- Reiniciar el servicio:
 - systemctl restart networking
-- 
+
 ![image](https://github.com/DanielTenorioF/Dhcp/assets/114906968/25201343-3861-41f4-80b7-df35eb71b0b1)
 
 
