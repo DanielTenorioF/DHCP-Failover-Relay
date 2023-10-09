@@ -54,5 +54,5 @@ Comprobar: systemctl status NetworkManager
 
 ![image](https://github.com/DanielTenorioF/Dhcp/assets/114906968/25201343-3861-41f4-80b7-df35eb71b0b1)
 
-
+## Configurar Ip 
 
