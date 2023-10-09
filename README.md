@@ -1,6 +1,7 @@
 # Posible Tarea 1
 
 ## Instalar DHCP en Debian12
+
 1.- Acceder a la configuracion d ela maquina servidor y el apartado "Red", cambiar el Adaptador 1 a "Red interna" y el Adaptador 2 a "Adaptador punte"
 
 ![image](https://github.com/DanielTenorioF/Dhcp/assets/114906968/87407add-fcee-465e-ac67-05e993524986)
@@ -54,5 +55,41 @@ Comprobar: systemctl status NetworkManager
 
 ![image](https://github.com/DanielTenorioF/Dhcp/assets/114906968/25201343-3861-41f4-80b7-df35eb71b0b1)
 
-## Configurar Ip 
+## Configurar la IP del Cliente
 
+1.- Ir a la configuracion de la máquina del Cliente y cambiar el Adaptador 1 a "Red interna" y Modo promiscuo a "Permitir todo"
+
+![image](https://github.com/DanielTenorioF/Dhcp/assets/114906968/9bc87e23-ac9b-4db4-82cf-13fdeb687c5c)
+
+2.- Crear el siguiente script en el Servidor (con extesión .sh) para que el Cliente pueda acceder a Internet:
+
+![image](https://github.com/DanielTenorioF/Dhcp/assets/114906968/7292518d-b0a8-4c10-8718-9f1bbab4b7a9)
+
+3.- Acceder al terminal de Cliente (Windows) y eliminar la ip y renovarla ejecutando los siguientes comandos:
+- ipconfig /release --> Para eliminar
+- ipconfig /renew --> Para renovar
+
+![image](https://github.com/DanielTenorioF/Dhcp/assets/114906968/8cd89d51-808b-438e-92b8-fa7d74b698e3)
+
+4.- Hacer ping a *google* y al *servidor*:
+
+![image](https://github.com/DanielTenorioF/Dhcp/assets/114906968/4885b107-71f8-46fa-ab61-fc015e4fd61d)
+
+## Configurar Failover
+
+1.- Para configurar el Failover primero habrá que modificar el fichero /etc/dhcp/dhcpd.conf. 
+- Añadiendo en "peer address" la IP que tendrá el servidor de *respaldo* y en "address" la IP del servidor *principal*.
+
+![image](https://github.com/DanielTenorioF/Dhcp/assets/114906968/a3a88f98-55b6-4cd2-822c-0a5a9ecfc25c)
+
+2.- Reiniciar el servicio:
+- systemctl restart isc-dhcp-service
+
+![image](https://github.com/DanielTenorioF/Dhcp/assets/114906968/8a91d715-e86d-46ae-8fe9-27ace35c7425)
+
+3.- Una vez modificado el fichero en el Servidor, hay que clonarlo y modificar el mismo fichero pero esta vez en el servidor de *respaldo*.
+- Pero ahora en el apartado "peer address" poner la IP del servidor principal y en "address" la del servidor del respaldo:
+
+![image](https://github.com/DanielTenorioF/Dhcp/assets/114906968/e6060dd4-ad62-4f95-9d84-46b3b3e77b22)
+
+4.- 
