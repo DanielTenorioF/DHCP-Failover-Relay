@@ -92,4 +92,24 @@ Comprobar: systemctl status NetworkManager
 
 ![image](https://github.com/DanielTenorioF/Dhcp/assets/114906968/e6060dd4-ad62-4f95-9d84-46b3b3e77b22)
 
-4.- 
+4.- Reiniciar el servicio:
+- systemctl restart isc-dhcp-server
+
+![image](https://github.com/DanielTenorioF/Dhcp/assets/114906968/e9c0fde9-6f1b-448c-b13f-d3386bebfc26)
+
+5.- Ahora hay que configurar la IP estática, modificando el ficher /etc/network/interfaces. Poner la misma IP asiganda anteriormente.
+- Comentar las lineas de la otra tarjeta (enp0s8) para que no cree ningún tipo de conflicto, incluso desactivarlo desde la configuración de la máquina.
+
+![image](https://github.com/DanielTenorioF/Dhcp/assets/114906968/46abfa0a-9063-48f6-98f0-e6b20a510353)
+
+6.- Reiniciar el servicio:
+- systemctl restart networking
+![image](https://github.com/DanielTenorioF/Dhcp/assets/114906968/d43eed1f-7222-4ccb-8506-e3e4b19163c5)
+
+7.- Comprobar si hace ping entre servidores
+
+![image](https://github.com/DanielTenorioF/Dhcp/assets/114906968/6dba48ac-8c55-4c58-b4ab-56c9ea605dfb)
+
+![image](https://github.com/DanielTenorioF/Dhcp/assets/114906968/f70b2c24-a45c-423f-b54f-ceab72018409)
+
+![image](https://github.com/DanielTenorioF/Dhcp/assets/114906968/392b7cf6-d3ed-460a-ad7c-7a17fab3d36e)
