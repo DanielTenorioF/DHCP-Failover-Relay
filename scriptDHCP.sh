@@ -1,4 +1,4 @@
-#!/bin/bash
++#!/bin/bash
 
 apt update
 apt upgrade
@@ -48,3 +48,4 @@ netmask 255.255.0.0
 EOF
 
 systemctl restart networking
+
