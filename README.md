@@ -113,3 +113,5 @@ Comprobar: systemctl status NetworkManager
 ![image](https://github.com/DanielTenorioF/Dhcp/assets/114906968/f70b2c24-a45c-423f-b54f-ceab72018409)
 
 ![image](https://github.com/DanielTenorioF/Dhcp/assets/114906968/392b7cf6-d3ed-460a-ad7c-7a17fab3d36e)
+
+- [Paso a paso](pasoAPaso.md)
