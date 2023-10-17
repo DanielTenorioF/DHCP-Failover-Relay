@@ -11,6 +11,45 @@ sudo systemctl stop NetworkManager
 
 sudo sed -i '/^INTERFACESv4=/s/"\([^"]*\)"/"\1enp0s3"/' /etc/default/isc-dhcp-server
 
+
+#cat <<EOF >> /etc/network/interfaces
+# Configuracion red estatica enp0s8
+#auto enp0s8
+#iface enp0s8 inet static
+#address 172.26.2.50
+#network 172.26.0.0
+#netmask 255.255.0.0
+#gateway 172.26.0.1
+
+# Configuracion red estatica enp0s3
+#auto enp0s3
+#iface enp0s3 inet static
+#address 10.0.2.5
+#network 10.0.0.0
+#netmask 255.255.0.0
+#EOF
+
+# PRUEBA
+
+sudo bash -c 'cat << EOF > /etc/network/interfaces
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+source /etc/network/interfaces.d/*
+
+# The loopback network interface
+auto enp0s3
+iface enp0s3 inet static
+        address 10.0.2.5
+        netmask 255.255.0.0
+        network 10.0.0.0
+        broadcast 10.0.255.255
+
+auto enp0s8
+iface enp0s8 inet dhcp
+EOF'
+
+
 #cat <<EOF >>/etc/dhcp/dhcpd.conf
 #subnet 10.0.0.0 netmask 255.255.0.0 {
 #  range 10.0.2.26 10.0.2.30;
@@ -61,45 +100,6 @@ subnet 172.31.16.0 netmask 255.255.240.0 {
   }
 }
 EOF'
-
-
-#cat <<EOF >> /etc/network/interfaces
-# Configuracion red estatica enp0s8
-#auto enp0s8
-#iface enp0s8 inet static
-#address 172.26.2.50
-#network 172.26.0.0
-#netmask 255.255.0.0
-#gateway 172.26.0.1
-
-# Configuracion red estatica enp0s3
-#auto enp0s3
-#iface enp0s3 inet static
-#address 10.0.2.5
-#network 10.0.0.0
-#netmask 255.255.0.0
-#EOF
-
-
-# PRUEBA
-
-#sudo bash -c 'cat << EOF > /etc/network/interfaces
-# This file describes the network interfaces available on your system
-# and how to activate them. For more information, see interfaces(5).
-
-#source /etc/network/interfaces.d/*
-
-# The loopback network interface
-#auto enp0s3
-#iface enp0s3 inet static
-#        address 10.0.2.5
-#        netmask 255.255.0.0
-#        network 10.0.0.0
-#        broadcast 10.0.255.255
-
-#auto enp0s8
-#iface enp0s8 inet dhcp
-#EOF'
 
 
 # Script Cliente para acceder a internet
