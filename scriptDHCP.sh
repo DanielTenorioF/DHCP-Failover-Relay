@@ -1,13 +1,13 @@
 #!/bin/bash
 
-apt update
-apt upgrade -y
+sudo apt update
+sudo apt upgrade -y
 
 apt install isc-dhcp-server -y
 apt install iptables -y
 
-systemctl disable NetworkManager
-systemctl stop NetworkManager
+sudo systemctl disable NetworkManager
+sudo systemctl stop NetworkManager
 
 sudo sed -i '/^INTERFACESv4=/s/"\([^"]*\)"/"\1enp0s3"/' /etc/default/isc-dhcp-server
 
