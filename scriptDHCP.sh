@@ -39,9 +39,9 @@ ddns-update-style none;
 authoritative;
 failover peer "FAILOVER" {
   primary;
-  address 10.0.2.5;
+  address 172.31.16.64;
   port 647;
-  peer address 10.0.2.55;
+  peer address 172.31.16.65;
   peer port 647;
   max-unacked-updates 10;
   max-response-delay 30;
@@ -50,14 +50,14 @@ failover peer "FAILOVER" {
   split 128;
 }
 
-subnet 10.0.0.0 netmask 255.255.0.0 {
-  option broadcast-address 10.0.255.255;
-  option routers 10.0.2.1;
+subnet 172.31.16.0 netmask 255.255.240.0 {
+  option broadcast-address 172.31.31.255;
+  option routers 172.31.16.1;
   option domain-name-servers 8.8.8.8, 8.8.4.4;
   pool {
     failover peer "FAILOVER";
     max-lease-time 3600;
-    range 10.0.2.26 10.0.2.30;
+    range 172.31.16.10 172.31.16.20;
   }
 }
 EOF'
