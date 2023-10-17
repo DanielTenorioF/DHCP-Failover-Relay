@@ -83,23 +83,23 @@ EOF'
 
 # PRUEBA
 
-sudo bash -c 'cat << EOF > /etc/network/interfaces
+#sudo bash -c 'cat << EOF > /etc/network/interfaces
 # This file describes the network interfaces available on your system
 # and how to activate them. For more information, see interfaces(5).
 
-source /etc/network/interfaces.d/*
+#source /etc/network/interfaces.d/*
 
 # The loopback network interface
-auto enp0s3
-iface enp0s3 inet static
-        address 10.0.2.5
-        netmask 255.255.0.0
-        network 10.0.0.0
-        broadcast 10.0.255.255
+#auto enp0s3
+#iface enp0s3 inet static
+#        address 10.0.2.5
+#        netmask 255.255.0.0
+#        network 10.0.0.0
+#        broadcast 10.0.255.255
 
-auto enp0s8
-iface enp0s8 inet dhcp
-EOF'
+#auto enp0s8
+#iface enp0s8 inet dhcp
+#EOF'
 
 
 # Script Cliente para acceder a internet
