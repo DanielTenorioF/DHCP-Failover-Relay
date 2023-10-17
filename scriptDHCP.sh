@@ -38,15 +38,15 @@ sudo bash -c 'cat << EOF > /etc/network/interfaces
 source /etc/network/interfaces.d/*
 
 # The loopback network interface
-auto enp0s3
+auto enX0
 iface enp0s3 inet static
-        address 10.0.2.5
-        netmask 255.255.0.0
-        network 10.0.0.0
-        broadcast 10.0.255.255
+        address 172.31.16.64
+        netmask 255.255.240.0
+        network 172.31.16.0
+        broadcast 172.31.31.255
 
-auto enp0s8
-iface enp0s8 inet dhcp
+#auto enp0s8
+#iface enp0s8 inet dhcp
 EOF'
 
 
