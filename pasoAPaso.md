@@ -1,6 +1,4 @@
-# Posible Tarea 1
-
-## Instalar DHCP en Debian12
+# Instalar DHCP en Debian12
 
 1.- Acceder a la configuracion d ela maquina servidor y el apartado "Red", cambiar el Adaptador 1 a "Red interna" y el Adaptador 2 a "Adaptador punte"
 
